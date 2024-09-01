@@ -1,6 +1,8 @@
 #ifndef TETROMINO_H
 #define TETROMINO_H
 
+#include "Square.h"
+
 typedef enum {
 	i,
 	o,
@@ -15,18 +17,14 @@ class Tetromino {
 private:
 	Square* blocks;
 	Square core;
-	Shape type;
+protected:
+	void setCore(int x, int y);
 public:
 	Tetromino(Shape type);
 	~Tetromino();
-	int rotateL();
-	int rotateR();
-};
-
-class Square {
-public:
-	int x;
-	int y;
+	virtual void rotateL();
+	virtual void rotateR();
+	bool down;
 };
 
 #endif
