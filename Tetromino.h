@@ -4,6 +4,7 @@
 #include "Square.h"
 
 typedef enum {
+	none,
 	i,
 	o,
 	t,
