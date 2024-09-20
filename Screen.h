@@ -2,12 +2,22 @@
 #include <list>
 #include <vector>
 #include <iostream>
+#include "Tetromino.h"
 
 class Screen {
-	static const int nb_line = 20;
-	static const int nb_col = 10;
-	std::list<std::vector<int>> matrix;
+private:
+	std::list<std::vector<int>*>* matrix;
+	static const int nb_line;
+	static const int nb_col;
+public:
 	Screen();
-	void clear();
+	~Screen();
+
+	static const int get_nb_line();
+	static const int get_nb_col();
+	
+	void del_line(int line);
 	bool isFull(int line);
+
+	void operator<<(Tetromino tetro);
 };
