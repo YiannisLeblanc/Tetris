@@ -5,3 +5,12 @@ Screen::Screen() {
 		
 	}
 }
+
+void Screen::clear()
+{
+}
+
+bool Screen::isFull(int line)
+{
+	return false;
+}
