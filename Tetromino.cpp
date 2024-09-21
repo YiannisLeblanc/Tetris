@@ -6,7 +6,7 @@ void Tetromino::setCore(int x, int y) {
 	}
 }
 
-Tetromino::Tetromino(Shape type) {
+Tetromino::Tetromino() {
 	this->blocks = new Square[4];
 	this->core.set(0, 0);
 	down = false;
