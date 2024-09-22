@@ -18,6 +18,5 @@ public:
 	
 	void del_line(int line);
 	bool isFull(int line);
-
-	void operator<<(Tetromino tetro);
+	void operator<<(Tetromino& tetro);
 };

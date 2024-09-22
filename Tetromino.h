@@ -13,13 +13,14 @@ typedef enum {
 	z,
 	s
 } Shape;
-
+ 
 class Tetromino {
 protected:
 	Square* blocks;
 	Square core;
 	void setCore(int x, int y);
 public:
+	static const int nb_block;
 	Tetromino();
 	~Tetromino();
 	virtual void rotateL();

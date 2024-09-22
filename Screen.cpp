@@ -14,13 +14,11 @@ Line* newLine() {
 	return newLine;
 }
 
-const int Screen::get_nb_line()
-{
+const int Screen::get_nb_line() {
 	return Screen::nb_line;
 }
 
-const int Screen::get_nb_col()
-{
+const int Screen::get_nb_col() {
 	return Screen::nb_col;
 }
 
@@ -64,6 +62,5 @@ bool Screen::isFull(int line) {
 	return full;
 }
 
-void Screen::operator<<(Tetromino tetro) {
-
+void Screen::operator<<(Tetromino& tetro) {
 }

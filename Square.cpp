@@ -1,12 +1,10 @@
 #include "Square.h"
 
-int Square::getX()
-{
+int Square::getX() {
     return this->x;
 }
 
-int Square::getY()
-{
+int Square::getY() {
     return this->y;
 }
 
