@@ -3,17 +3,8 @@
 
 #include "Square.h"
 
-typedef enum {
-	none,
-	i,
-	o,
-	t,
-	l,
-	j,
-	z,
-	s
-} Shape;
- 
+class Screen;
+
 class Tetromino {
 protected:
 	Square* blocks;
@@ -26,7 +17,19 @@ public:
 	virtual void rotateL();
 	virtual void rotateR();
 	bool down;
+	friend Screen& Screen::operator<<(Tetromino& tetro);
 };
 
+typedef enum {
+	none,
+	i,
+	o,
+	t,
+	l,
+	j,
+	z,
+	s
+} Shape;
+ 
 #endif
 

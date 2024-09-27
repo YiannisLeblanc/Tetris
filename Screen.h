@@ -1,8 +1,12 @@
-#pragma once
+#ifndef SCREEN_H
+#define SCREEN_H
+
 #include <list>
 #include <vector>
 #include <iostream>
-#include "Tetromino.h"
+
+
+class Tetromino;
 
 class Screen {
 private:
@@ -18,5 +22,6 @@ public:
 	
 	void del_line(int line);
 	bool isFull(int line);
-	void operator<<(Tetromino& tetro);
+	Screen& operator<<(Tetromino& tetro);
 };
+#endif

@@ -6,7 +6,7 @@ typedef vector<int> Line;
 const int Screen::nb_col = 10;
 const int Screen::nb_line = 20;
 
-Line* newLine() {
+static Line* newLine() {
 	Line* newLine = new vector<int>(Screen::get_nb_line());
 	for (int i = 0; i < Screen::get_nb_line(); i++) {
 		(*newLine)[i] = 0;
@@ -62,5 +62,6 @@ bool Screen::isFull(int line) {
 	return full;
 }
 
-void Screen::operator<<(Tetromino& tetro) {
+Screen& Screen::operator<<(Tetromino& tetro) {
+	return *this;
 }
