@@ -1,4 +1,4 @@
-#include "tetris_class.h"
+#include "Tetromino.h"
 
 const unsigned int Tetromino::nb_block = 4;
 

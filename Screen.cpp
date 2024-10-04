@@ -1,4 +1,5 @@
-#include "tetris_class.h"
+#include "Screen.h"
+
 using namespace std;
 typedef list<vector<int>*>::iterator Iterator;
 typedef vector<int> Line;
@@ -63,5 +64,22 @@ bool Screen::isFull(int line) {
 }
 
 Screen& Screen::operator<<(Tetromino& tetro) {
+	Iterator temp = matrix->begin();
+	int index = 0;
+	Square tempSquare;
+	for (int i = 0; i < Tetromino::nb_block; i++) {
+		tempSquare = tetro[i];
+		if (index < tempSquare.getY()) {
+			for (; index < tempSquare.getY(); index++) {
+				temp++;
+			}
+		}
+		else {
+			for (; index > tempSquare.getY(); index++) {
+				temp++;
+			}
+		}
+		(**temp)[tempSquare.getX()] = 1;
+	}
 	return *this;
 }

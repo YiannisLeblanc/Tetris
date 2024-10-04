@@ -137,7 +137,6 @@
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="TBlock.h" />
-    <ClInclude Include="tetris_class.h" />
     <ClInclude Include="Tetromino.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
