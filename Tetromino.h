@@ -16,6 +16,9 @@ public:
 	virtual void rotateR();
 	bool down;
 	const Square operator[](unsigned int index) const;
+	void moveX(int dX);
+	void moveY(int dY);
+	Tetromino& operator=(const Tetromino& tetro);
 };
 
 typedef enum {
