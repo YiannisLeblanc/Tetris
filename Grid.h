@@ -6,21 +6,21 @@
 #include <iostream>
 #include "Tetromino.h"
 
-class Screen {
+class Grid {
 private:
 	std::list<std::vector<int>*>* matrix;
 	static const int nb_line;
 	static const int nb_col;
 public:
-	Screen();
-	~Screen();
+	Grid();
+	~Grid();
 
 	static const int get_nb_line();
 	static const int get_nb_col();
 
 	void del_line(int line);
 	bool isFull(int line);
-	Screen& operator<<(Tetromino& tetro);
+	Grid& operator<<(Tetromino& tetro);
 };
 
 #endif
