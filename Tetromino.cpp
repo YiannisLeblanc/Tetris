@@ -1,6 +1,6 @@
-#include "Tetromino.h"
+#include "tetris_class.h"
 
-const int Tetromino::nb_block = 4;
+const unsigned int Tetromino::nb_block = 4;
 
 void Tetromino::setCore(int x, int y) {
 	for (int i = 0; i < Tetromino::nb_block; i++) {
@@ -29,3 +29,11 @@ void Tetromino::rotateR() {
 		this->blocks[i].set(this->blocks[i].getY(), -this->blocks[i].getX());
 	}
 }
+
+const Square Tetromino::operator[](unsigned int index) const {
+	if (index>=Tetromino::nb_block) return Square();
+
+	return this->blocks[index] + this->core;
+}
+
+

@@ -1,5 +1,5 @@
 #pragma once
-#include "Tetromino.h"
+#include "tetris_class.h"
 class TBlock : public Tetromino {
 	TBlock();
 };

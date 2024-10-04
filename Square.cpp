@@ -1,10 +1,10 @@
 #include "Square.h"
 
-int Square::getX() {
+int Square::getX() const {
     return this->x;
 }
 
-int Square::getY() {
+int Square::getY() const {
     return this->y;
 }
 
@@ -32,4 +32,22 @@ void Square::moveX(int deltaX) {
 
 void Square::moveY(int deltaY) {
     this->y += deltaY;
+}
+
+Square::Square(int x, int y) {
+    this->set(x, y);
+}
+
+Square::Square() {
+    this->set(0, 0);
+}
+
+Square& Square::operator=(const Square& square) {
+    this->set(square.getX(), square.getY());
+    return *this;
+}
+
+Square Square::operator+(Square square) const {
+    Square result(this->getX() + square.getX(), this->getY() + square.getY());
+    return result;
 }

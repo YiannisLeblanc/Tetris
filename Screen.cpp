@@ -1,4 +1,4 @@
-#include "Screen.h"
+#include "tetris_class.h"
 using namespace std;
 typedef list<vector<int>*>::iterator Iterator;
 typedef vector<int> Line;
