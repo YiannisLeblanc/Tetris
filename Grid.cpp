@@ -83,3 +83,10 @@ Grid& Grid::operator<<(Tetromino& tetro) {
 	}
 	return *this;
 }
+
+void Grid::console_display() {
+	for (Iterator temp = this->matrix->end();; temp--);
+}
+
+void Grid::console_display(Tetromino tetro) {
+}

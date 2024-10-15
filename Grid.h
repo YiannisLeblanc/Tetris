@@ -21,6 +21,8 @@ public:
 	void del_line(int line);
 	bool isFull(int line);
 	Grid& operator<<(Tetromino& tetro);
+	void console_display();
+	void console_display(Tetromino tetro);
 };
 
 #endif

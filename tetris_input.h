@@ -2,6 +2,7 @@
 #define TETRIS_INPUT_H
 
 #include <dinput.h>
+#include <stdio.h>
 
 bool rotateR();
 bool rotateR_hold();
