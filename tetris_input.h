@@ -1,6 +1,8 @@
 #ifndef TETRIS_INPUT_H
 #define TETRIS_INPUT_H
 
+#include <dinput.h>
+
 bool rotateR();
 bool rotateR_hold();
 bool rotateL();

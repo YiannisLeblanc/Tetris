@@ -51,3 +51,8 @@ Square Square::operator+(Square square) const {
     Square result(this->getX() + square.getX(), this->getY() + square.getY());
     return result;
 }
+
+Square Square::operator-(Square square) const {
+    Square result(this->getX() - square.getX(), this->getY() - square.getY());
+    return result;
+}

@@ -18,6 +18,7 @@ public:
 	Square();
 	Square& operator=(const Square& square);
 	Square operator+(Square square) const;
+	Square operator-(Square square) const;
 };
 
 #endif

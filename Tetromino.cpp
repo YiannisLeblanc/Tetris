@@ -49,6 +49,9 @@ void Tetromino::moveX(int dX) {
 }
 
 Tetromino& Tetromino::operator=(const Tetromino& tetro) {
+	for (int i = 0; i < Tetromino::nb_block; i++) {
+		this->blocks[i] = tetro[i] - this->core;
+	}
 	return *this;
 }
 
