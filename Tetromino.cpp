@@ -37,15 +37,11 @@ const Square Tetromino::operator[](unsigned int index) const {
 }
 
 void Tetromino::moveY(int dY) {
-	for (int i = 0; i < Tetromino::nb_block; i++) {
-		this->blocks[i].moveY(dY);
-	}
+	this->core.moveY(dY);
 }
 
 void Tetromino::moveX(int dX) {
-	for (int i = 0; i < Tetromino::nb_block; i++) {
-		this->blocks[i].moveX(dX);
-	}
+	this->core.moveX(dX);
 }
 
 Tetromino& Tetromino::operator=(const Tetromino& tetro) {
