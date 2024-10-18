@@ -1,14 +1,13 @@
 #include "Grid.h"
-
 using namespace std;
-typedef list<vector<int>*>::iterator Iterator;
-typedef list<vector<int>*>::reverse_iterator R_Iterator;
-typedef vector<int> Line;
+typedef std::list<std::vector<int>*>::iterator Iterator;
+typedef std::list<std::vector<int>*>::reverse_iterator R_Iterator;
+typedef std::vector<int> Line;
 
 const int Grid::nb_col = 10;
 const int Grid::nb_line = 20;
 
-static Line* newLine() {
+Line* Grid::newLine() {
 	Line* newLine = new vector<int>(Grid::get_nb_line());
 	for (int i = 0; i < Grid::get_nb_line(); i++) {
 		(*newLine)[i] = 0;
@@ -24,10 +23,33 @@ const int Grid::get_nb_col() {
 	return Grid::nb_col;
 }
 
+void Grid::console_line_display(unsigned int L2, unsigned int L1) {
+	if (L2 >= Grid::get_nb_line() or L1 >= Grid::get_nb_line()) return;
+	
+	unsigned int index = Grid::get_nb_line()-1;
+	R_Iterator temp;
+	for (temp = this->matrix->rbegin(); index > L2 && temp != this->matrix->rend(); index--) {
+		temp++;
+	}
+	for (; temp != this->matrix->rend() && index >= L1; temp++) {
+		cout << "<!";
+		for (int i = 0; i < Grid::get_nb_col(); i++) {
+			if ((**temp)[i]) {
+				cout << "[]";
+			}
+			else {
+				cout << " .";
+			}
+		}
+		cout << "!>" << endl;
+		index--;
+	}
+}
+
 Grid::Grid() {
 	matrix = new list<vector<int>*>;
 	for (int i = 0; i < Grid::nb_line; i++) {
-		matrix->push_back(newLine());
+		matrix->push_back(Grid::newLine());
 	}
 }
 
@@ -40,21 +62,14 @@ Grid::~Grid() {
 	delete(matrix);;
 }
 
-void Grid::del_line(int line) {
-	Iterator temp = matrix->begin();
-	for (int i = 0; i < line; i++) {
-		temp++;
-	}
+void Grid::del_line(std::list<std::vector<int>*>::iterator temp) {
+	delete(*temp);
 	matrix->erase(temp);
-	matrix->push_back(newLine());
+	matrix->push_back(Grid::newLine());
 }
 
-bool Grid::isFull(int line) {
+bool Grid::isFull(std::list<std::vector<int>*>::iterator temp) {
 	bool full = true;
-	Iterator temp = matrix->begin();
-	for (int i = 0; i < line; i++) {
-		temp++;
-	}
 	Line testedLine = **temp;
 	for (int i = 0; i < get_nb_col() && full; i++) {
 		if (!testedLine[i]) {
@@ -90,23 +105,12 @@ Grid& Grid::operator<<(Tetromino& tetro) {
 }
 
 void Grid::console_display() {
-	for (R_Iterator temp = this->matrix->rbegin(); temp != this->matrix->rend(); temp++) {
-		cout << "<!";
-		for (int i = 0; i < Grid::get_nb_col(); i++) {
-			if ((**temp)[i]) {
-				cout << "[]";
-			}
-			else {
-				cout << " .";
-			}
-		}
-		cout << "!>" << endl;
-	}
+	this->console_line_display(Grid::get_nb_line() - 1, 0);
 	cout << "<!";
 	for (int i = 0; i < Grid::get_nb_col(); i++) cout << "==";
 	cout << "!>" << endl;
 }
 
 void Grid::console_display(Tetromino tetro) {
-
+	
 }

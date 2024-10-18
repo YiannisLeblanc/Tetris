@@ -130,14 +130,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Square.cpp" />
-    <ClCompile Include="TBlock.cpp" />
+    <ClCompile Include="derived_Tetromino.cpp" />
     <ClCompile Include="tetris_input.cpp" />
     <ClCompile Include="Tetromino.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Square.h" />
-    <ClInclude Include="TBlock.h" />
+    <ClInclude Include="derived_Tetromino.h" />
     <ClInclude Include="tetris_game.h" />
     <ClInclude Include="tetris_input.h" />
     <ClInclude Include="Tetromino.h" />
