@@ -8,14 +8,13 @@ using namespace std;
 int main() {
 	Grid* matrix = new Grid;
 	Tetromino* tetro = new TBar;
-	tetro->moveX(3);
-	tetro->moveY(4);
-	*matrix << *tetro;
-	matrix->console_display();
-	cout << "\n";
-	tetro->rotateR();
-	tetro->moveX(5);
-	*matrix << *tetro;
-	matrix->console_display();
+	tetro->setCore(4, 5);
+	cout << endl;
+	for (;;) {
+		matrix->console_display(*tetro);
+		cout << "\n";
+		Sleep(500);
+		tetro->moveY(-1);
+	}
 	return 0;
 }

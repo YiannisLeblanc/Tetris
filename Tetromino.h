@@ -7,7 +7,7 @@ class Tetromino {
 protected:
 	Square* blocks;
 	Square core;
-	void setCore(int x, int y);
+	void moveCore(const int x, const int y);
 public:
 	static const unsigned int nb_block;
 	Tetromino();
@@ -15,10 +15,13 @@ public:
 	virtual void rotateL();
 	virtual void rotateR();
 	bool down;
-	const Square operator[](unsigned int index) const;
-	void moveX(int dX);
-	void moveY(int dY);
+	const Square operator[](const unsigned int index) const;
+	void moveX(const int dX);
+	void moveY(const int dY);
+	void setCore(const int x, const int y);
 	Tetromino& operator=(const Tetromino& tetro);
+	int yMax() const;
+	int yMin() const;
 };
 
 typedef enum {

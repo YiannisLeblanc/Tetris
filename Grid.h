@@ -11,8 +11,12 @@ private:
 	std::list<std::vector<int>*>* matrix;
 	static const int nb_line;
 	static const int nb_col;
-	void console_line_display(unsigned int L2, unsigned int L1);
+	std::list<std::vector<int>*>::reverse_iterator console_line_display(const unsigned int L2, const unsigned int L1) const;
+	void console_line_display_to_end(std::list<std::vector<int>*>::reverse_iterator temp) const;
 	static std::vector<int>* newLine();
+	static void line_display(const std::vector<int> line);
+	static void line_display(const std::vector<int> line, const Tetromino tetro, const int yIndex);
+	static void console_last_line_display();
 public:
 	Grid();
 	~Grid();
@@ -21,10 +25,10 @@ public:
 	static const int get_nb_col();
 
 	void del_line(std::list<std::vector<int>*>::iterator temp);
-	static bool isFull(std::list<std::vector<int>*>::iterator temp);
+	static bool isFull(const std::list<std::vector<int>*>::iterator temp);
 	Grid& operator<<(Tetromino& tetro);
-	void console_display();
-	void console_display(Tetromino tetro);
+	void console_display() const;
+	void console_display(const Tetromino tetro) const;
 };
 
 #endif
