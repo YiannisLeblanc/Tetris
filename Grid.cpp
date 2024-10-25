@@ -33,9 +33,7 @@ void Grid::line_display(const std::vector<int> line, const Tetromino tetro, cons
 	bool block;
 	for (int i = 0; i < get_nb_col(); i++) {
 		if (line[i]) {
-			
 				cout << "[]";
-			
 		}
 		else {
 			block = false;

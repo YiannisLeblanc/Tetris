@@ -47,12 +47,22 @@ Square& Square::operator=(const Square& square) {
     return *this;
 }
 
-Square Square::operator+(Square square) const {
+Square Square::operator+(const Square square) const {
     Square result(this->getX() + square.getX(), this->getY() + square.getY());
     return result;
 }
 
-Square Square::operator-(Square square) const {
+Square Square::operator-(const Square square) const {
     Square result(this->getX() - square.getX(), this->getY() - square.getY());
     return result;
+}
+
+Square& Square::operator+=(const Square square) {
+    *this = *this + square;
+    return *this;
+}
+
+Square& Square::operator-=(const Square square) {
+    *this = *this - square;
+    return *this;
 }

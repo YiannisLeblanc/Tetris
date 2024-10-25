@@ -17,8 +17,11 @@ public:
 	Square(int x, int y);
 	Square();
 	Square& operator=(const Square& square);
-	Square operator+(Square square) const;
-	Square operator-(Square square) const;
+	Square operator+(const Square square) const;
+	Square operator-(const Square square) const;
+	Square& operator+=(const Square square);
+	Square& operator-=(const Square square);
+
 };
 
 #endif

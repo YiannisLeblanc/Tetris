@@ -6,12 +6,28 @@ void Tetromino::moveCore(const int x, const int y) {
 	for (int i = 0; i < Tetromino::nb_block; i++) {
 		this->blocks[i].move(this->core.getX() - x, this->core.getY() - y);
 	}
+	this->core.set(x, y);
+}
+
+void Tetromino::moveCore(const Square square) {
+	for (int i = 0; i < Tetromino::nb_block; i++) {
+		this->blocks[i] += this->core - square;
+	}
+	this->core = square;
 }
 
 Tetromino::Tetromino() {
 	this->blocks = new Square[Tetromino::nb_block];
 	this->core.set(0, 0);
 	down = false;
+}
+
+Tetromino::Tetromino(const Tetromino& tetro) : Tetromino() {
+	this->core = tetro.core;
+	for (int i = 0; i < nb_block; i++) {
+		this->blocks[i] = tetro.blocks[i];
+	}
+	this->down = tetro.down;
 }
 
 Tetromino::~Tetromino() {
@@ -42,6 +58,10 @@ void Tetromino::moveY(const int dY) {
 
 void Tetromino::setCore(const int x, const int y) {
 	this->core.set(x, y);
+}
+
+void Tetromino::setCore(const Square square) {
+	this->core = square;
 }
 
 void Tetromino::moveX(const int dX) {
