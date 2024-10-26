@@ -10,12 +10,14 @@ int main() {
 	Tetromino* tetro = new TBar;
 	tetro->setCore(4, 25);
 	tetro->moveCore((*tetro)[2]);
+	matrix->console_display();
+	Sleep(5000);
 	for (int i = 0;;i++) {
+		cout << "\n"; 
 		matrix->console_display(*tetro);
 		Sleep(500);
-		cout << "\n";
-		if (i%2==0) tetro->moveY(-1);
-		if (i%2!=0) tetro->rotateL();
+		tetro->moveY(-1);
+		tetro->rotateL();
 	}
 	return 0;
 }

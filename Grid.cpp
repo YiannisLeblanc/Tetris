@@ -28,7 +28,8 @@ void Grid::line_display(const std::vector<int> line) {
 	cout << "!>" << endl;
 }
 
-void Grid::line_display(const std::vector<int> line, const Tetromino tetro, const int yIndex) {
+void Grid::line_display(const std::vector<int> line, const Tetromino tetro, const int yIndex) 
+{
 	cout << "<!";
 	bool block;
 	for (int i = 0; i < get_nb_col(); i++) {
@@ -67,7 +68,7 @@ const int Grid::get_nb_col() {
 	return nb_col;
 }
 
-R_Iterator Grid::console_line_display(unsigned int L2, unsigned int L1) const {
+R_Iterator Grid::console_line_display(const int L2, const int L1) const {
 	if (L2 >= Grid::get_nb_line() or L1 >= Grid::get_nb_line()) return this->matrix->rbegin();
 	
 	unsigned int index = Grid::get_nb_line()-1;
@@ -78,9 +79,6 @@ R_Iterator Grid::console_line_display(unsigned int L2, unsigned int L1) const {
 	for (; temp != this->matrix->rend() && index >= L1; temp++) {
 		Grid::line_display(**temp);
 		index--;
-	}
-	if (temp != this->matrix->rend()) {
-		temp++;
 	}
 	return temp;
 }

@@ -11,7 +11,7 @@ private:
 	std::list<std::vector<int>*>* matrix;
 	static const int nb_line;
 	static const int nb_col;
-	std::list<std::vector<int>*>::reverse_iterator console_line_display(const unsigned int L2, const unsigned int L1) const;
+	std::list<std::vector<int>*>::reverse_iterator console_line_display(const int L2, const int L1) const;
 	void console_line_display_to_end(std::list<std::vector<int>*>::reverse_iterator temp) const;
 	static std::vector<int>* newLine();
 	static void line_display(const std::vector<int> line);
