@@ -21,8 +21,8 @@ public:
 	Grid();
 	~Grid();
 
-	static const int get_nb_line();
-	static const int get_nb_col();
+	static const int get_nb_line(); // Constante public
+	static const int get_nb_col(); // Constante public
 
 	void del_line(std::list<std::vector<int>*>::iterator temp);
 	static bool isFull(const std::list<std::vector<int>*>::iterator temp);
