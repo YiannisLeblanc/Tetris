@@ -27,7 +27,7 @@ public:
 	int yMin() const;
 };
 
-typedef enum {
+enum class Shape{
 	none,
 	i,
 	o,
@@ -36,6 +36,6 @@ typedef enum {
 	j,
 	z,
 	s
-} Shape;
+};
 
 #endif

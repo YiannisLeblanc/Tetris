@@ -10,6 +10,9 @@ int main() {
 	Tetromino* tetro = new TBar;
 	tetro->setCore(4, 25);
 	tetro->moveCore((*tetro)[2]);
+	TBar tetro2;
+	tetro2.setCore(4,10);
+	*matrix << tetro2;
 	matrix->console_display();
 	Sleep(5000);
 	for (int i = 0;;i++) {
