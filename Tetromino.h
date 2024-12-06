@@ -10,7 +10,7 @@ protected:
 public:
 	void moveCore(const int x, const int y);
 	void moveCore(const Square square);
-	static const unsigned int nb_block; // mettre en majuscule
+	static const unsigned int NB_BLOCK; // mettre en majuscule
 	Tetromino();
 	Tetromino(const Tetromino& tetro);
 	~Tetromino();

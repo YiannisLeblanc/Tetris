@@ -10,8 +10,6 @@
 class Grid {
 private:
 	std::list<std::vector<int>*>* matrix;
-	static const int nb_line;
-	static const int nb_col;
 	std::list<std::vector<int>*>::reverse_iterator console_line_display(const int L2, const int L1) const;
 	void console_line_display_to_end(std::list<std::vector<int>*>::reverse_iterator temp) const;
 	static std::vector<int>* newLine();
@@ -22,8 +20,8 @@ public:
 	Grid();
 	~Grid();
 
-	static const int get_nb_line(); // Constante public
-	static const int get_nb_col(); // Constante public
+	static const int NB_LINE;
+	static const int NB_COL;
 
 	void del_line(std::list<std::vector<int>*>::iterator temp);
 	static bool isFull(const std::list<std::vector<int>*>::iterator temp);
