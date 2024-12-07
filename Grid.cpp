@@ -155,3 +155,24 @@ void Grid::console_display(const Tetromino tetro) const {
 	console_line_display_to_end(temp);
 	console_last_line_display();
 }
+
+void Grid::basic_line_display(const std::vector<int> line) {
+	for (int i = 0; i < NB_COL; i++) {
+		if (line[i]) {
+			cout << "[]";
+		}
+		else {
+			cout << " .";
+		}
+	}
+}
+
+void Grid::better_display(const COORD cursorPoisition, const HANDLE consoleOutput) const {
+	COORD cursPosTemp = cursorPoisition;
+
+	R_Iterator temp;
+	for (; temp != this->matrix->rend(); temp++) {
+		Grid::basic_line_display(**temp);
+
+	}
+}

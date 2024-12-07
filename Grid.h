@@ -28,6 +28,10 @@ public:
 	Grid& operator<<(Tetromino& tetro);
 	void console_display() const;
 	void console_display(const Tetromino tetro) const;
+
+	static void basic_line_display(const std::vector<int> line);
+	
+	void better_display(const COORD cursorPoisition, const HANDLE consoleOutput) const;
 };
 
 #endif
