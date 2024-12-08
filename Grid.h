@@ -17,6 +17,10 @@ private:
 	static void line_display(const std::vector<int> line);
 	static void line_display(const std::vector<int> line, const Tetromino tetro, const int yIndex);
 	static void console_last_line_display();
+	static void console_front();
+	static void console_end();
+	static void console_filled_cell();
+	static void console_empty_cell();
 public:
 	Grid();
 	~Grid();

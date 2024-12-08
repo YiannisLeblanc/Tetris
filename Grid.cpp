@@ -16,25 +16,25 @@ Line* Grid::newLine() {
 }
 
 void Grid::line_display(const std::vector<int> line) {
-	cout << "<!";
+	console_front();
 	for (int i = 0; i < get_nb_col(); i++) {
 		if (line[i]) {
-			cout << "[]";
+			console_filled_cell();
 		}
 		else {
-			cout << " .";
+			console_empty_cell();
 		}
 	}
-	cout << "!>" << endl;
+	console_end();
 }
 
 void Grid::line_display(const std::vector<int> line, const Tetromino tetro, const int yIndex) 
 {
-	cout << "<!";
+	console_front();
 	bool block;
 	for (int i = 0; i < get_nb_col(); i++) {
 		if (line[i]) {
-				cout << "[]";
+			console_filled_cell();
 		}
 		else {
 			block = false;
@@ -44,20 +44,36 @@ void Grid::line_display(const std::vector<int> line, const Tetromino tetro, cons
 				}
 			}
 			if (block) {
-				cout << "[]";
+				console_filled_cell();
 			}
 			else {
-				cout << " .";
+				console_empty_cell();
 			}
 		}
 	}
-	cout << "!>" << endl;
+	console_end();
 }
 
 void Grid::console_last_line_display() {
-	cout << "<!";
+	console_front();
 	for (int i = 0; i < get_nb_col(); i++) cout << "==";
+	console_end();
+}
+
+void Grid::console_front() {
+	cout << "<!";
+}
+
+void Grid::console_end() {
 	cout << "!>" << endl;
+}
+
+void Grid::console_filled_cell() {
+	cout << "[]";
+}
+
+void Grid::console_empty_cell() {
+	cout << " .";
 }
 
 const int Grid::get_nb_line() {
