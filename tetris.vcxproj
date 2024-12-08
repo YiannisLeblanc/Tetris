@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dynamic_display.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="derived_Tetromino.cpp" />
+    <ClCompile Include="tetris_game.cpp" />
     <ClCompile Include="tetris_input.cpp" />
     <ClCompile Include="Tetromino.cpp" />
   </ItemGroup>

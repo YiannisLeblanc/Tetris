@@ -10,7 +10,7 @@ protected:
 public:
 	void moveCore(const int x, const int y);
 	void moveCore(const Square square);
-	static const unsigned int nb_block;
+	static const unsigned int NB_BLOCK; // mettre en majuscule
 	Tetromino();
 	Tetromino(const Tetromino& tetro);
 	~Tetromino();
@@ -27,7 +27,7 @@ public:
 	int yMin() const;
 };
 
-typedef enum {
+enum class Shape{
 	none,
 	i,
 	o,
@@ -36,6 +36,6 @@ typedef enum {
 	j,
 	z,
 	s
-} Shape;
+};
 
 #endif
