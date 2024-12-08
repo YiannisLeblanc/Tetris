@@ -1,5 +1,5 @@
 #include <iostream>
-#include "tetris_input.h"
+#include "tetris_game.h"
 #include "Grid.h"
 #include "derived_Tetromino.h"
 #include <windows.h>
@@ -12,15 +12,18 @@ int main() {
 	tetro->moveCore((*tetro)[2]);
 	TBar tetro2;
 	tetro2.setCore(4,10);
-	*matrix << tetro2;
-	matrix->console_display();
-	Sleep(5000);
+
+	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO ConsoleScreenBufferInfo;
+	GetConsoleScreenBufferInfo(out, &ConsoleScreenBufferInfo);
+	COORD cursor = ConsoleScreenBufferInfo.dwCursorPosition;
 	for (int i = 0;;i++) {
 		cout << "\n"; 
-		matrix->console_display(*tetro);
+		matrix->better_display(cursor, out);
 		Sleep(500);
 		tetro->moveY(-1);
 		tetro->rotateL();
+		*matrix << tetro2;
 	}
 	return 0;
 }

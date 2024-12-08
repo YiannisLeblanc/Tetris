@@ -1,5 +1,4 @@
-/*
-CONSOLE_CURSOR_INFO cursorInfo;
+/*CONSOLE_CURSOR_INFO cursorInfo;
 	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
 	GetConsoleCursorInfo(out, &cursorInfo);
 	cursorInfo.bVisible = 0;
@@ -20,4 +19,4 @@ CONSOLE_CURSOR_INFO cursorInfo;
 		Sleep(T);
 		SetConsoleCursorPosition(out, cursorPosition);
 	}
-*/
+	*/

@@ -56,7 +56,7 @@ void Grid::line_display(const std::vector<int> line, const Tetromino tetro, cons
 
 void Grid::console_last_line_display() {
 	console_front();
-	for (int i = 0; i < get_nb_col(); i++) cout << "==";
+	for (int i = 0; i < NB_COL; i++) cout << "==";
 	console_end();
 }
 
@@ -74,14 +74,6 @@ void Grid::console_filled_cell() {
 
 void Grid::console_empty_cell() {
 	cout << " .";
-}
-
-const int Grid::get_nb_line() {
-	return nb_line;
-}
-
-const int Grid::get_nb_col() {
-	return nb_col;
 }
 
 R_Iterator Grid::console_line_display(const int L2, const int L1) const {
@@ -196,7 +188,9 @@ void Grid::better_display(const COORD cursorPoisition, const HANDLE consoleOutpu
 
 	R_Iterator temp;
 	for (; temp != this->matrix->rend(); temp++) {
+		SetConsoleCursorPosition(consoleOutput, cursPosTemp);
 		Grid::basic_line_display(**temp);
+		cursPosTemp.Y--;
 
 	}
 }
