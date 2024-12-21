@@ -6,7 +6,8 @@
 using namespace std;
 
 int main() {
-	Grid* matrix = new Grid;
+	HideConsoleCursor();
+
 	Tetromino* tetro = new TBar;
 	tetro->setCore(4, 25);
 	tetro->moveCore((*tetro)[2]);
@@ -17,13 +18,14 @@ int main() {
 	CONSOLE_SCREEN_BUFFER_INFO ConsoleScreenBufferInfo;
 	GetConsoleScreenBufferInfo(out, &ConsoleScreenBufferInfo);
 	COORD cursor = ConsoleScreenBufferInfo.dwCursorPosition;
+	Grid* matrix = new Grid(out, cursor);
 	for (int i = 0;;i++) {
 		cout << "\n"; 
-		matrix->better_display(cursor, out);
+		matrix->better_display();
+		tetroDisplay(*tetro, out, cursor);
 		Sleep(500);
 		tetro->moveY(-1);
 		tetro->rotateL();
-		*matrix << tetro2;
 	}
 	return 0;
 }

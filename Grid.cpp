@@ -54,6 +54,23 @@ void Grid::line_display(const std::vector<int> line, const Tetromino tetro, cons
 	console_end();
 }
 
+void Grid::frame_display(COORD& current) {
+	COORD temp = current;
+	SetConsoleCursorPosition(this->consoleOutput, temp);
+	for (int i = 0; i < NB_LINE; i++) {
+		console_front();
+		for (int j = 0;  j < NB_COL; j++) {
+			cout << "  ";
+		}
+		console_end();
+		cout << endl;
+		temp.Y++;
+		SetConsoleCursorPosition(this->consoleOutput, temp);
+	}
+	console_last_line_display();
+	current.X += 2;
+}
+
 void Grid::console_last_line_display() {
 	console_front();
 	for (int i = 0; i < NB_COL; i++) cout << "==";
@@ -97,11 +114,21 @@ void Grid::console_line_display_to_end(std::list<std::vector<int>*>::reverse_ite
 	}
 }
 
-Grid::Grid() {
+Grid::Grid()/* : cnslFrm("<!", "!>", "==")*/ {
 	matrix = new list<vector<int>*>;
 	for (int i = 0; i < NB_LINE; i++) {
 		matrix->push_back(newLine());
 	}
+}
+
+Grid::Grid(HANDLE consoleOutput, COORD& cursorPosition) : Grid() {
+	this->consoleOutput = consoleOutput;
+	if (cursorPosition.X < 0 && cursorPosition.Y < 0) {
+		cursorPosition.X = 0;
+		cursorPosition.Y = 0;
+	}
+	frame_display(cursorPosition);
+	this->cursorPosition = cursorPosition;
 }
 
 Grid::~Grid() {
@@ -183,14 +210,59 @@ void Grid::basic_line_display(const std::vector<int> line) {
 	}
 }
 
-void Grid::better_display(const COORD cursorPoisition, const HANDLE consoleOutput) const {
-	COORD cursPosTemp = cursorPoisition;
+void Grid::better_display() const {
+	COORD cursPosTemp = this->cursorPosition;
 
-	R_Iterator temp;
+	R_Iterator temp = this->matrix->rbegin();
 	for (; temp != this->matrix->rend(); temp++) {
-		SetConsoleCursorPosition(consoleOutput, cursPosTemp);
+		SetConsoleCursorPosition(this->consoleOutput, cursPosTemp);
 		Grid::basic_line_display(**temp);
-		cursPosTemp.Y--;
+		cursPosTemp.Y++;
 
 	}
 }
+
+/*void Frame::strAssign(char* destination, const char* source) {
+	if (destination != nullptr) {
+		delete(destination);
+	}
+	destination = new char[strlen(source)];
+	strcpy(destination, source);
+}
+
+Frame::Frame() {
+	this->front = nullptr;
+	this->end = nullptr;
+	this->border = nullptr;
+}
+
+Frame::Frame(const char* front, const char* end, const char* border) {
+	this->front = new char[strlen(front)];
+	this->end = new char[strlen(end)];
+	this->border = new char[strlen(border)];
+
+	strcpy(this->front, front);
+	strcpy(this->end, end);
+	strcpy(this->border, border);
+}
+
+Frame::Frame(Frame& srcFrame) : Frame::Frame(srcFrame.front, srcFrame.end, srcFrame.border) {}
+
+Frame::~Frame() {
+	delete(this->front);
+	delete(this->end);
+	delete(this->border);
+}
+
+void Frame::setFront(const char* newFront) {
+	strAssign(this->front, newFront);
+}
+
+void Frame::setEndt(const char* newEnd) {
+	strAssign(this->end, newEnd);
+}
+
+void Frame::setBorder(const char* newBorder) {
+	strAssign(this->border, newBorder);
+}
+*/

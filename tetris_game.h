@@ -8,5 +8,5 @@ void HideConsoleCursor();
 void displayGridFrame();
 COORD GetCursorPosition();
 bool setCursorPosition();
-
+void tetroDisplay(Tetromino tetro,HANDLE out, COORD cursor);
 #endif
