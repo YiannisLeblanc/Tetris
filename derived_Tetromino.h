@@ -7,12 +7,12 @@ class TBar : public Tetromino {
 public:
 	TBar();
 };
-/*
-class IBar : public Tetromino {
+
+/*class IBar : public Tetromino {
 public:
 	IBar();
-};
-*/
+};*/
+
 class OBar : public Tetromino {
 public:
 	OBar();

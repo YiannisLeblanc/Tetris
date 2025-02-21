@@ -1,11 +1,8 @@
 #include <iostream>
 #include "tetris_game.h"
-#include "Grid.h"
-#include "derived_Tetromino.h"
-#include <windows.h>
 using namespace std;
 
-int main() {
+int main() {/*
 	HideConsoleCursor();
 
 	Tetromino* tetro = new TBar;
@@ -21,11 +18,11 @@ int main() {
 	Grid* matrix = new Grid(out, cursor);
 	for (int i = 0;;i++) {
 		cout << "\n"; 
-		matrix->better_display();
+		gridDisplay(*matrix);
 		tetroDisplay(*tetro, out, cursor);
 		Sleep(500);
 		tetro->moveY(-1);
 		tetro->rotateL();
-	}
+	}*/
 	return 0;
 }
