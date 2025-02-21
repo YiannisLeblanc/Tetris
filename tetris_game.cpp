@@ -37,20 +37,16 @@ void gridDisplay(const Grid grid, const HANDLE out, const COORD cursor) {
 	C_R_Iterator temp = grid.rbegin();
 	for (; temp != grid.rend(); temp++) {
 		SetConsoleCursorPosition(out, cursPosTemp);
-		basic_line_display(**temp);
+		for (int i = 0; i < Grid::NB_COL; i++) {
+			if ((**temp)[i]) {
+				cout << "[]";
+			}
+			else {
+				cout << " .";
+			}
+		}
 		cursPosTemp.Y++;
 
-	}
-}
-
-static void basic_line_display(const Line& line) {
-	for (int i = 0; i < Grid::NB_COL; i++) {
-		if (line[i]) {
-			cout << "[]";
-		}
-		else {
-			cout << " .";
-		}
 	}
 }
 
