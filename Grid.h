@@ -9,14 +9,11 @@
 #include <cstring>
 
 
-using C_R_Iterator = std::list<std::vector<int>*>::const_reverse_iterator;
-using Line = std::vector<int>;
-using C_Iterator = std::list<std::vector<int>*>::const_iterator;
-
 class Grid {
 private:
 	using Iterator = std::list<std::vector<int>*>::iterator;
 	using R_Iterator = std::list<std::vector<int>*>::reverse_iterator;
+	using Line = std::vector<int>;
 
 	std::list<Line*> matrix;
 	static Line* newLine();
@@ -28,6 +25,9 @@ private:
 	R_Iterator rend();
 
 public:
+	using C_R_Iterator = std::list<std::vector<int>*>::const_reverse_iterator;
+	using C_Iterator = std::list<std::vector<int>*>::const_iterator;
+
 	Grid();
 	~Grid();
 	static const int NB_LINE;
@@ -39,5 +39,8 @@ public:
 	C_Iterator end() const;
 	C_R_Iterator rbegin() const;
 	C_R_Iterator rend() const;
+	
+	
+
 };
 #endif

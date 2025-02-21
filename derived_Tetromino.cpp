@@ -42,7 +42,7 @@ LBar::LBar() : Tetromino::Tetromino() {
 	this->blocks[3].set(2, 0);
 }
 
-RBar::RBar() : Tetromino::Tetromino() {
+JBar::JBar() : Tetromino::Tetromino() {
 	this->blocks[0].set(0, 0);
 	this->blocks[1].set(1, 0);
 	this->blocks[2].set(2, 0);

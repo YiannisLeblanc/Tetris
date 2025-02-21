@@ -8,10 +8,10 @@ public:
 	TBar();
 };
 
-/*class IBar : public Tetromino {
+class IBar : public Tetromino {
 public:
 	IBar();
-};*/
+};
 
 class OBar : public Tetromino {
 public:
@@ -28,19 +28,14 @@ public:
 	ZBar();
 };
 
-class IBar : public Tetromino {
-public:
-	IBar();
-};
-
 class LBar : public Tetromino {
 public:
 	LBar();
 };
 
-class RBar : public Tetromino {
+class JBar : public Tetromino {
 public:
-	RBar();
+	JBar();
 };
 
 #endif

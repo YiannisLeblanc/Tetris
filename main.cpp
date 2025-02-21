@@ -2,7 +2,7 @@
 #include "tetris_game.h"
 using namespace std;
 
-int main() {/*
+int main() {
 	HideConsoleCursor();
 
 	Tetromino* tetro = new TBar;
@@ -15,14 +15,14 @@ int main() {/*
 	CONSOLE_SCREEN_BUFFER_INFO ConsoleScreenBufferInfo;
 	GetConsoleScreenBufferInfo(out, &ConsoleScreenBufferInfo);
 	COORD cursor = ConsoleScreenBufferInfo.dwCursorPosition;
-	Grid* matrix = new Grid(out, cursor);
+	Grid* matrix = new Grid();
 	for (int i = 0;;i++) {
 		cout << "\n"; 
-		gridDisplay(*matrix);
+		gridDisplay(*matrix, out, cursor);
 		tetroDisplay(*tetro, out, cursor);
 		Sleep(500);
 		tetro->moveY(-1);
 		tetro->rotateL();
-	}*/
+	}
 	return 0;
 }

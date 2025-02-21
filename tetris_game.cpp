@@ -34,7 +34,7 @@ void displayGridFrame(HANDLE out, COORD current) {
 void gridDisplay(const Grid grid, const HANDLE out, const COORD cursor) {
 	COORD cursPosTemp = cursor;
 
-	C_R_Iterator temp = grid.rbegin();
+	Grid::C_R_Iterator temp = grid.rbegin();
 	for (; temp != grid.rend(); temp++) {
 		SetConsoleCursorPosition(out, cursPosTemp);
 		for (int i = 0; i < Grid::NB_COL; i++) {
