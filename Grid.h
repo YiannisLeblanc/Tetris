@@ -29,6 +29,7 @@ public:
 	using C_Iterator = std::list<std::vector<int>*>::const_iterator;
 
 	Grid();
+	Grid(const Grid& ref);
 	~Grid();
 	static const int NB_LINE;
 	static const int NB_COL;

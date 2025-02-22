@@ -17,6 +17,18 @@ Grid::Grid() : matrix() {
 	}
 }
 
+Grid::Grid(const Grid& ref) : Grid::Grid() {
+	Iterator temp = this->begin();
+	C_Iterator refTemp = ref.begin();
+	while ( temp != this->end() && refTemp != ref.end()) {
+		for (unsigned int i = 0; i < ref.NB_COL && i < this->NB_COL; i++) {
+			(**temp)[i] = (**refTemp)[i];
+		}
+		temp++;
+		refTemp++;
+	}
+}
+
 Grid::~Grid() {
 	Iterator temp;
 	for (temp = begin(); temp != end(); temp++) {

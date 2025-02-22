@@ -31,7 +31,7 @@ void displayGridFrame(HANDLE out, COORD current) {
 	current.X += 2;
 }
 
-void gridDisplay(const Grid grid, const HANDLE out, const COORD cursor) {
+void gridDisplay(const Grid& grid, const HANDLE out, const COORD cursor) {
 	COORD cursPosTemp = cursor;
 
 	Grid::C_R_Iterator temp = grid.rbegin();
