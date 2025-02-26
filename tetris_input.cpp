@@ -1,48 +1,54 @@
 #include "tetris_input.h"
 
-static bool rotateR_prev = false;
-static bool rotateL_prev = false;
-static bool moveR_prev = false;
-static bool moveL_prev = false;
+Input::Inputs Input::flag = nullFlag;
 
-bool rotateR() {
-    bool input;
-    input = (getchar() == ':' && !rotateR_prev);
-    rotateR_prev = input;
-    return input;
+void Input::update() { // à adapter au fichier json
+	char c = _getch();
+	switch (c) {
+	case 'z':
+		flag = upFlag;
+		break;
+	case 's':
+		flag = downFlag;
+		break;
+	case 'q':
+		flag = leftFlag;
+		break;
+	case 'd':
+		flag = rightFlag;
+		break;
+	case ',':
+		flag = rotLFlag;
+		break;
+	case ';':
+		flag = rotRFlag;
+		break;
+	default:
+		flag = nullFlag;
+		break;
+	}
 }
 
-bool rotateR_hold()
-{
-    return false;
+bool Input::up() {
+	return flag & Inputs::upFlag;
 }
 
-bool rotateL()
-{
-    return false;
+bool Input::down() {
+	return flag & Inputs::downFlag;
 }
 
-bool rotateL_hold()
-{
-    return false;
+bool Input::left() {
+	return flag & Inputs::leftFlag;
 }
 
-bool moveL()
-{
-    return false;
+bool Input::right() {
+	return flag & Inputs::rightFlag;
 }
 
-bool moveL_hold()
-{
-    return false;
+bool Input::rotL() {
+	return flag & Inputs::rotLFlag;
 }
 
-bool moveR()
-{
-    return false;
-}
-
-bool moveR_hold()
-{
-    return false;
+bool Input::rotR() {
+	return flag & Inputs::rotRFlag;
 }

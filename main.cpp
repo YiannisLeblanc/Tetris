@@ -20,9 +20,13 @@ int main() {
 		cout << "\n"; 
 		gridDisplay(*matrix, out, cursor);
 		tetroDisplay(*tetro, out, cursor);
-		Sleep(500);
-		tetro->moveY(-1);
-		tetro->rotateL();
+		//Sleep(500);
+		Input::update();
+		if (Input::down()) tetro->moveY(-1);
+		if (Input::left()) tetro->moveX(-1);
+		if (Input::right()) tetro->moveX(1);
+		if (Input::rotR())tetro->rotateR();
+		if (Input::rotL())tetro->rotateL();
 	}
 	return 0;
 }
