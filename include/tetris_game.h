@@ -5,6 +5,8 @@
 #include "tetris_input.h"
 #include "derived_Tetromino.h"
 
+
+#if defined(_WIN32) || defined(_WIN64)
 void HideConsoleCursor();
 COORD GetCursorPosition();
 bool setCursorPosition();
@@ -15,4 +17,5 @@ bool setCursorPosition();
 void gridDisplay(const Grid& grid, const HANDLE out, const COORD cursor);
 void displayGridFrame(HANDLE out, COORD current);
 void tetroDisplay(Tetromino tetro,HANDLE out, COORD cursor);
+#endif
 #endif

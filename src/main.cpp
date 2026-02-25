@@ -2,6 +2,7 @@
 #include "tetris_game.h"
 using namespace std;
 
+#if defined(_WIN32) || defined(_WIN64)
 int main() {
 	HideConsoleCursor();
 
@@ -30,3 +31,8 @@ int main() {
 	}
 	return 0;
 }
+#else
+int main(){
+	return 0;
+}
+#endif

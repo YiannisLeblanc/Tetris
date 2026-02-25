@@ -1,6 +1,8 @@
 #include "tetris_game.h"
 using namespace std;
 
+#if defined(_WIN32) || defined(_WIN64)
+
 COORD cursorPosition;
 HANDLE consoleOutput;
 
@@ -69,3 +71,4 @@ void tetroDisplay(Tetromino tetro,HANDLE out, COORD cursor) {
 		cout << "[]";
 	}
 }
+#endif

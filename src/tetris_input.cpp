@@ -2,8 +2,12 @@
 
 Input::Inputs Input::flag = nullFlag;
 
-void Input::update() { // à adapter au fichier json
+void Input::update() { // ï¿½ adapter au fichier json
+	#if defined(_WIN32) || defined(_WIN64)
 	char c = _getch();
+	#else
+	char c = 's';
+	#endif
 	switch (c) {
 	case 'z':
 		flag = upFlag;

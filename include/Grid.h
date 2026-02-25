@@ -5,8 +5,11 @@
 #include <vector>
 #include <iostream>
 #include "Tetromino.h"
-#include <Windows.h>
 #include <cstring>
+
+#if defined(_WIN32) || defined(_WIN64)
+#include <Windows.h>
+#endif
 
 
 class Grid {

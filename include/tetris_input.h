@@ -1,9 +1,12 @@
 #ifndef TETRIS_INPUT_H
 #define TETRIS_INPUT_H
 
-#include <dinput.h>
 #include <stdio.h>
+
+#if defined(_WIN32) || defined(_WIN64)
+#include <dinput.h>
 #include <conio.h>
+#endif
 
 class Input {
 private:
